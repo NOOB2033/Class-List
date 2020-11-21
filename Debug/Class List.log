@@ -1,0 +1,7 @@
+﻿  List.cpp
+  Node.cpp
+C:\Users\User\source\repos\Class List\Class List\Node.h(11,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "&"
+C:\Users\User\source\repos\Class List\Class List\Node.h(11,16): error C2433: ostream: "friend" не разрешается для объявлений данных
+C:\Users\User\source\repos\Class List\Class List\Node.h(11,16): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\Class List\Class List\Node.h(11,45): error C2238: непредвиденные лексемы перед ";"
+  Создание кода...
