@@ -1,6 +1,6 @@
 #pragma once
 #include<iostream>
-using namespace std;
+
 
 class Node
 {
@@ -9,7 +9,8 @@ private:
 	Node* prev_, * next_;
 public:
 	Node();
-	friend ostream& operator<<(ostream&, const Node&);
+	friend std::istream& operator>>(std::istream&, const Node&);
+	friend std::ostream& operator<<(std::ostream&, const Node&);
 	int& key();
 	Node*& prev();
 	Node*& next();
