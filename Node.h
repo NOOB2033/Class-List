@@ -9,7 +9,9 @@ private:
 	Node* prev_, * next_;
 public:
 	Node();
-	friend std::istream& operator>>(std::istream&, const Node&);
+	Node(int);
+	Node(Node*, Node*);
+	friend std::istream& operator>>(std::istream&, Node&);
 	friend std::ostream& operator<<(std::ostream&, const Node&);
 	int& key();
 	Node*& prev();

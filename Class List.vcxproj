@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Enum.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="Node.h" />
   </ItemGroup>

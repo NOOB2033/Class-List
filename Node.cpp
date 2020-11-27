@@ -8,7 +8,22 @@ Node::Node()
 }
 
 
-std::istream& operator>>(std::istream& in, const Node& node)
+Node::Node(int key)
+{
+	key_ = key;
+	prev_ = next_ = 0;
+}
+
+
+Node::Node(Node* prev, Node* next)
+{
+	prev_ = prev;
+	next_ = next;
+	key_ = 0;
+}
+
+
+std::istream& operator>>(std::istream& in, Node& node)
 {
 	in >> node.key_;
 	return in;
