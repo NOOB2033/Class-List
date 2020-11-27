@@ -6,10 +6,6 @@
 int main()
 {
 	setlocale(LC_ALL, "Ru");
-	List list(5);
-	std::cin >> list;
-	list[2] = 19;
-	std::cout << list;
 	try
 	{
 	}
