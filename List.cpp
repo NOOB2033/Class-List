@@ -12,7 +12,7 @@ void List::add(Node* prev, Node* node)
 }
 
 
-void List::del(Node* node)
+void List::remove(Node* node)
 {
 	Node* prev = node->prev();
 	Node* next = node->next();
@@ -24,8 +24,7 @@ void List::del(Node* node)
 Node* List::searchPlace(Node* node)
 {
 	Node* p1 = node->prev();
-	for (; p1 != head_ && p1->key() > node->key();)
-		p1 = p1->prev();
+	for (; p1 != head_ && p1->key() > node->key(); p1 = p1->prev());
 	return p1;
 }
 
@@ -134,7 +133,7 @@ void List::deleteFromHead()
 {
 	if (!empty()) {
 		Node* node = head_->next();
-		del(node);
+		remove(node);
 		delete node;
 	}
 }
@@ -144,7 +143,7 @@ void List::deleteFromTail()
 {
 	if (!empty()) {
 		Node* node = tail_->prev();
-		del(node);
+		remove(node);
 		delete node;
 	}
 }
@@ -155,7 +154,7 @@ void List::deleteFromPosition(int index)
 	if (!empty()) {
 		Node* node = searchIndex(index);
 		if (node != tail_) {
-			del(node);
+			remove(node);
 			delete node;
 		}
 		else                // если равен хвосту, то удаляем последний элемент
@@ -168,7 +167,7 @@ void List::deleteByKey(int key)
 {
 	Node* node = search(key);
 	if (node)
-		del(node);
+		remove(node);
 	delete node;
 }
 
@@ -185,7 +184,7 @@ void List::sort()
 	Node* node;
 	for (Node* i = head_->next()->next(); i != tail_; i = i->next()) {
 		node = i;
-		del(node);
+		remove(node);
 		add(searchPlace(node), node);
 	}
 }
@@ -248,7 +247,7 @@ int& List::operator[](int index)
 }
 
 
-List List::operator=(const List& other)
+List& List::operator=(const List& other)// ссылки
 {
 	if (this != &other) {
 		clear();
@@ -259,7 +258,7 @@ List List::operator=(const List& other)
 }
 
 
-List List::operator+=(const List& other)
+List& List::operator+=(const List& other)
 {
 	for (Node* i = other.head_->next(); i != other.tail_; i = i->next())
 		addToTail(i->key());

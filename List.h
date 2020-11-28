@@ -7,7 +7,7 @@ class List
 private:
 	Node* head_, * tail_;
 	void add(Node* prev, Node* node);
-	void del(Node* node);
+	void remove(Node* node);
 	Node* searchPlace(Node*);
 	Node* searchIndex(int);
 public:
@@ -35,7 +35,7 @@ public:
 	bool operator==(const List&);
 	bool operator!=(const List&);
 	int& operator[](int);
-	List operator=(const List&);
-	List operator+=(const List&);
+	List& operator=(const List&);
+	List& operator+=(const List&);
 	List operator+(const List&);
 };
