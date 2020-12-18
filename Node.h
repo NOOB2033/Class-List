@@ -12,8 +12,8 @@ public:
 	Node();
 	Node(int);
 	Node(Node*, Node*);
-	friend std::istream& operator>>(std::istream&, Node&);
-	friend std::ostream& operator<<(std::ostream&, const Node&);
+	friend std::istream& operator>>(std::istream&, const List&);
+	friend std::ostream& operator<<(std::ostream&, const List&);
 	//int key();
 	//Node* prev();
 	//Node* next();

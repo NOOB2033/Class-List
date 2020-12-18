@@ -8,15 +8,5 @@ C:\Users\User\source\repos\Class List\Class List\Node.h(5): message : см. об
 C:\Users\User\source\repos\Class List\Class List\List.cpp(84,10): error C2248: Node::key_: невозможно обратиться к private член, объявленному в классе "Node"
 C:\Users\User\source\repos\Class List\Class List\Node.h(8): message : см. объявление "Node::key_"
 C:\Users\User\source\repos\Class List\Class List\Node.h(5): message : см. объявление "Node"
-C:\Users\User\source\repos\Class List\Class List\List.cpp(91,27): error C2248: Node::next_: невозможно обратиться к private член, объявленному в классе "Node"
-C:\Users\User\source\repos\Class List\Class List\Node.h(9): message : см. объявление "Node::next_"
-C:\Users\User\source\repos\Class List\Class List\Node.h(5): message : см. объявление "Node"
-C:\Users\User\source\repos\Class List\Class List\List.cpp(91,58): error C2248: Node::next_: невозможно обратиться к private член, объявленному в классе "Node"
-C:\Users\User\source\repos\Class List\Class List\Node.h(9): message : см. объявление "Node::next_"
-C:\Users\User\source\repos\Class List\Class List\Node.h(5): message : см. объявление "Node"
-C:\Users\User\source\repos\Class List\Class List\List.cpp(92,11): error C2248: Node::key_: невозможно обратиться к private член, объявленному в классе "Node"
-C:\Users\User\source\repos\Class List\Class List\Node.h(8): message : см. объявление "Node::key_"
-C:\Users\User\source\repos\Class List\Class List\Node.h(5): message : см. объявление "Node"
-  main.cpp
   Node.cpp
   Создание кода...

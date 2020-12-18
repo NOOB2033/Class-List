@@ -23,7 +23,7 @@ Node::Node(Node* prev, Node* next)
 }
 
 
-std::istream& operator>>(std::istream& in, Node& node)
+/*std::istream& operator>>(std::istream& in, Node& node)
 {
 	in >> node.key_;
 	return in;
@@ -37,7 +37,7 @@ std::ostream& operator<<(std::ostream& out, const Node& node)
 }
 
 
-/*int& Node::key()
+int& Node::key()
 {
 	return key_;
 }
