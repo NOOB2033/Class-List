@@ -78,7 +78,7 @@ List::~List()
 }
 
 
-std::istream& operator>>(std::istream& in, const List& list)
+std::istream& operator>>(std::istream& in, List& list)
 {
 	for (Node* i = list.head_->next_; i != list.tail_; i = i->next_)
 		in >> i->key_;
@@ -86,7 +86,7 @@ std::istream& operator>>(std::istream& in, const List& list)
 }
 
 
-std::ostream& operator<<(std::ostream& out, const List& list)
+std::ostream& operator<<(std::ostream& out, List& list)
 {
 	for (Node* i = list.head_->next_; i != list.tail_; i = i->next_)
 		out << i->key_ << " ";
@@ -294,21 +294,21 @@ Node::Node(Node* prev, Node* next)
 }
 
 
-/*std::istream& operator>>(std::istream& in, Node& node)
+/*std::istream& operator>>(std::istream& in, List& node)
 {
 	in >> node.key_;
 	return in;
 }
 
 
-std::ostream& operator<<(std::ostream& out, const Node& node)
+std::ostream& operator<<(std::ostream& out,  List& node)
 {
 	out << node.key_;
 	return out;
 }
 
 
-int& Node::key()
+/*int& Node::key()
 {
 	return key_;
 }

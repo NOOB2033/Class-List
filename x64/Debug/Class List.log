@@ -1,19 +1,4 @@
 ﻿  List.cpp
-C:\Users\User\source\repos\Class List\Class List\List.cpp(83,21): error C2248: List::head_: невозможно обратиться к private член, объявленному в классе "List"
-C:\Users\User\source\repos\Class List\Class List\List.h(10): message : см. объявление "List::head_"
-C:\Users\User\source\repos\Class List\Class List\List.h(7): message : см. объявление "List"
-C:\Users\User\source\repos\Class List\Class List\List.cpp(83,27): error C2248: Node::next_: невозможно обратиться к private член, объявленному в классе "Node"
-C:\Users\User\source\repos\Class List\Class List\List.h(50): message : см. объявление "Node::next_"
-C:\Users\User\source\repos\Class List\Class List\List.h(46): message : см. объявление "Node"
-C:\Users\User\source\repos\Class List\Class List\List.cpp(83,45): error C2248: List::tail_: невозможно обратиться к private член, объявленному в классе "List"
-C:\Users\User\source\repos\Class List\Class List\List.h(10): message : см. объявление "List::tail_"
-C:\Users\User\source\repos\Class List\Class List\List.h(7): message : см. объявление "List"
-C:\Users\User\source\repos\Class List\Class List\List.cpp(83,58): error C2248: Node::next_: невозможно обратиться к private член, объявленному в классе "Node"
-C:\Users\User\source\repos\Class List\Class List\List.h(50): message : см. объявление "Node::next_"
-C:\Users\User\source\repos\Class List\Class List\List.h(46): message : см. объявление "Node"
-C:\Users\User\source\repos\Class List\Class List\List.cpp(84,10): error C2248: Node::key_: невозможно обратиться к private член, объявленному в классе "Node"
-C:\Users\User\source\repos\Class List\Class List\List.h(49): message : см. объявление "Node::key_"
-C:\Users\User\source\repos\Class List\Class List\List.h(46): message : см. объявление "Node"
   main.cpp
 C:\Users\User\source\repos\Class List\Class List\main.cpp(9,15): error C2679: бинарный ">>": не найден оператор, принимающий правый операнд типа "overloaded-function" (или приемлемое преобразование отсутствует)
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\istream(294,39): message : может быть "std::basic_istream<char,std::char_traits<char>> &std::basic_istream<char,std::char_traits<char>>::operator >>(std::basic_streambuf<char,std::char_traits<char>> *)"
