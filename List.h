@@ -1,5 +1,7 @@
 #pragma once
-#include"Node.h"
+#include<iostream>
+
+class Node;
 
 
 class List
@@ -16,7 +18,7 @@ public:
 	List(int*, int);
 	List(const List&);
 	~List();
-	friend std::istream& operator>>(std::istream&, const List&);
+	friend std::istream& operator>>(std::istream&, List&);
 	friend std::ostream& operator<<(std::ostream&, const List&);
 	bool empty();
 	void addToHead(int);
@@ -38,4 +40,22 @@ public:
 	List& operator=(const List&);
 	List& operator+=(const List&);
 	List operator+(const List&);
+};
+
+
+class Node
+{
+private:
+	int key_;
+	Node* prev_, * next_;
+	friend List;
+public:
+	Node();
+	Node(int);
+	Node(Node*, Node*);
+	friend std::istream& operator>>(std::istream&, List&);
+	friend std::ostream& operator<<(std::ostream&, const List&);
+	//int key();
+	//Node* prev();
+	//Node* next();
 };
