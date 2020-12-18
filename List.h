@@ -18,8 +18,8 @@ public:
 	List(int*, int);
 	List(const List&);
 	~List();
-	friend std::istream& operator>>(std::istream&, List&);
-	friend std::ostream& operator<<(std::ostream&, List&);
+	friend std::istream& operator>>(std::istream&, const List&);
+	friend std::ostream& operator<<(std::ostream&, const List&);
 	bool empty();
 	void addToHead(int);
 	void addToTail(int);
@@ -53,9 +53,6 @@ public:
 	Node();
 	Node(int);
 	Node(Node*, Node*);
-	friend std::istream& operator>>(std::istream&, List&);
-	friend std::ostream& operator<<(std::ostream&, List&);
-	//int key();
-	//Node* prev();
-	//Node* next();
+	friend std::istream& operator>>(std::istream&, const List&);
+	friend std::ostream& operator<<(std::ostream&, const List&);
 };
