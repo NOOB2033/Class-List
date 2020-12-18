@@ -4,27 +4,27 @@
 
 void List::add(Node* prev, Node* node)
 {
-	Node* next = prev->next();
-	node->prev() = prev;
-	node->next() = next;
-	prev->next() = node;
-	next->prev() = node;
+	Node* next = prev->next_;
+	node->prev_ = prev;
+	node->next_ = next;
+	prev->next_ = node;
+	next->prev_ = node;
 }
 
 
 void List::remove(Node* node)
 {
-	Node* prev = node->prev();
-	Node* next = node->next();
-	prev->next() = next;
-	next->prev() = prev;
+	Node* prev = node->prev_;
+	Node* next = node->next_;
+	prev->next_ = next;
+	next->prev_ = prev;
 }
 
 
 Node* List::searchPlace(Node* node)
 {
-	Node* p1 = node->prev();
-	for (; p1 != head_ && p1->key() > node->key(); p1 = p1->prev());
+	Node* p1 = node->prev_;
+	for (; p1 != head_ && p1->key_ > node->key_; p1 = p1->prev_);
 	return p1;
 }
 
@@ -33,8 +33,8 @@ Node* List::searchIndex(int index)
 {
 	if (index < 0)
 		throw Invalid_index;
-	Node* node = head_->next();
-	for (; node != tail_ && index > 0; node = node->next(), index--);
+	Node* node = head_->next_;
+	for (; node != tail_ && index > 0; node = node->next_, index--);
 	return node;
 }
 
@@ -43,7 +43,7 @@ List::List()
 {
  	head_ = new Node();
 	tail_ = new Node(head_, 0);
-	head_->next() = tail_;
+	head_->next_ = tail_;
 }
 
 
@@ -65,8 +65,8 @@ List::List(int* arr, int size) : List()
 
 List::List(const List& copyList) : List()
 {
-	for (Node* i = copyList.head_->next(); i != copyList.tail_; i = i->next())
-		addToTail(i->key());
+	for (Node* i = copyList.head_->next_; i != copyList.tail_; i = i->next_)
+		addToTail(i->key_);
 }
 
 
@@ -80,23 +80,23 @@ List::~List()
 
 std::istream& operator>>(std::istream& in, const List& list)
 {
-	for (Node* i = list.head_->next(); i != list.tail_; i = i->next())
-		in >> i->key();
+	for (Node* i = list.head_->next_; i != list.tail_; i = i->next_)
+		in >> i->key_;
 	return in;
 }
 
 
 std::ostream& operator<<(std::ostream& out, const List& list)
 {
-	for (Node* i = list.head_->next(); i != list.tail_; i = i->next())
-		out << i->key() << " ";
+	for (Node* i = list.head_->next_; i != list.tail_; i = i->next_)
+		out << i->key_ << " ";
 	return out;
 }
 
 
 bool List::empty()
 {
-	if (head_->next() == tail_)
+	if (head_->next_ == tail_)
 		return true;
 	return false;
 }
@@ -112,13 +112,13 @@ void List::addToHead(int key)
 void List::addToTail(int key)
 {
 	Node* node = new Node(key);
-	add(tail_->prev(), node);
+	add(tail_->prev_, node);
 }
 
 
 void List::addToPosition(Node* node, int index)
 {
-	add(searchIndex(index)->prev(), node); //если индекс больше, чем количество узлов - добавляем перед хвостом
+	add(searchIndex(index)->prev_, node); //если индекс больше, чем количество узлов - добавляем перед хвостом
 }
 
 
@@ -132,7 +132,7 @@ void List::addAfterKey(Node* node, int key)
 void List::deleteFromHead()
 {
 	if (!empty()) {
-		Node* node = head_->next();
+		Node* node = head_->next_;
 		remove(node);
 		delete node;
 	}
@@ -142,7 +142,7 @@ void List::deleteFromHead()
 void List::deleteFromTail()
 {
 	if (!empty()) {
-		Node* node = tail_->prev();
+		Node* node = tail_->prev_;
 		remove(node);
 		delete node;
 	}
@@ -182,7 +182,7 @@ void List::clear()
 void List::sort()
 {
 	Node* node;
-	for (Node* i = head_->next()->next(); i != tail_; i = i->next()) {
+	for (Node* i = head_->next_->next_; i != tail_; i = i->next_) {
 		node = i;
 		remove(node);
 		add(searchPlace(node), node);
@@ -192,28 +192,28 @@ void List::sort()
 
 int List::searchMax()
 {
-	int max = head_->next()->key();
-	for (Node* i = head_->next()->next(); i != tail_; i = i->next())
-		if (i->key() > max)
-			max = i->key();
+	int max = head_->next_->key_;
+	for (Node* i = head_->next_->next_; i != tail_; i = i->next_)
+		if (i->key_ > max)
+			max = i->key_;
 	return max;
 }
 
 
 int List::searchMin()
 {
-	int min = head_->next()->key();
-	for (Node* i = head_->next()->next(); i != tail_; i = i->next())
-		if (i->key() < min)
-			min = i->key();
+	int min = head_->next_->key_;
+	for (Node* i = head_->next_->next_; i != tail_; i = i->next_)
+		if (i->key_ < min)
+			min = i->key_;
 	return min;
 }
 
 
 Node* List::search(int key)
 {
-	for (Node* i = head_->next(); i != tail_; i = i->next())
-		if (i->key() == key)
+	for (Node* i = head_->next_; i != tail_; i = i->next_)
+		if (i->key_ == key)
 			return i;
 	return nullptr;
 }
@@ -221,9 +221,9 @@ Node* List::search(int key)
 
 bool List::operator==(const List& other)
 {
-	Node* node1 = head_->next();
-	Node* node2 = other.head_->next();
-	for (; node1->key() == node2->key() && node1 != tail_ && node2 != other.tail_; node1 = node1->next(), node2 = node2->next());
+	Node* node1 = head_->next_;
+	Node* node2 = other.head_->next_;
+	for (; node1->key_ == node2->key_ && node1 != tail_ && node2 != other.tail_; node1 = node1->next_, node2 = node2->next_);
 	if (node1 == tail_ && node2 == other.tail_)
 		return true;
 	return false;
@@ -232,9 +232,9 @@ bool List::operator==(const List& other)
 
 bool List::operator!=(const List& other)
 {
-	Node* node1 = head_->next();
-	Node* node2 = other.head_->next();
-	for (; node1->key() == node2->key() && node1 != tail_ && node2 != other.tail_; node1 = node1->next(), node2 = node2->next());
+	Node* node1 = head_->next_;
+	Node* node2 = other.head_->next_;
+	for (; node1->key_ == node2->key_ && node1 != tail_ && node2 != other.tail_; node1 = node1->next_, node2 = node2->next_);
 	if (node1 == tail_ && node2 == other.tail_)
 		return false;
 	return true;
@@ -243,7 +243,7 @@ bool List::operator!=(const List& other)
 
 int& List::operator[](int index)
 {
-	return searchIndex(index)->key();
+	return searchIndex(index)->key_;
 }
 
 
@@ -251,8 +251,8 @@ List& List::operator=(const List& other)// ссылки
 {
 	if (this != &other) {
 		clear();
-		for (Node* i = other.head_->next(); i != other.tail_; i = i->next())
-			addToTail(i->key());
+		for (Node* i = other.head_->next_; i != other.tail_; i = i->next_)
+			addToTail(i->key_);
 	}
 	return *this;
 }
@@ -260,8 +260,8 @@ List& List::operator=(const List& other)// ссылки
 
 List& List::operator+=(const List& other)
 {
-	for (Node* i = other.head_->next(); i != other.tail_; i = i->next())
-		addToTail(i->key());
+	for (Node* i = other.head_->next_; i != other.tail_; i = i->next_)
+		addToTail(i->key_);
 	return *this;
 }
 

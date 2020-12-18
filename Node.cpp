@@ -37,19 +37,19 @@ std::ostream& operator<<(std::ostream& out, const Node& node)
 }
 
 
-int& Node::key()
+/*int& Node::key()
 {
 	return key_;
 }
 
 
-Node*& Node::prev()
+Node* Node::prev()
 {
 	return prev_;
 }
 
 
-Node*& Node::next()
+Node* Node::next()
 {
 	return next_;
-}
+}*/
